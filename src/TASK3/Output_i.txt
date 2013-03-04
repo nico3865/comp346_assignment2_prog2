@@ -1,0 +1,121 @@
+﻿[Console output redirected to file:C:\Program Files\eclipse\Output_i.txt]
+Main thread starts executing.
+Initial value of top = 3.
+Initial value of stack top = d.
+Main thread will now fork several threads.
+Two Consumer threads have been created.
+Two Producer threads have been created.
+One CharStackProber thread has been created.
+Consumer thread [TID=1] starts executing.
+Producer thread [TID=3] starts executing.
+Consumer thread [TID=1] pops character =d
+CharStackProber thread [TID=5] starts executing.
+Producer thread [TID=3] pushes character =d
+Consumer thread [TID=2] starts executing.
+Stack S = ([a],[b],[c],[d],[$],[$],[$],[$],[$],[$])
+Producer thread [TID=3] pushes character =e
+Consumer thread [TID=1] pops character =e
+Stack S = ([a],[b],[c],[d],[$],[$],[$],[$],[$],[$])
+Producer thread [TID=3] pushes character =e
+Producer thread [TID=3] terminates.
+Consumer thread [TID=1] pops character =e
+Producer thread [TID=4] starts executing.
+Consumer thread [TID=1] terminates.
+Stack S = ([a],[b],[c],[d],[$],[$],[$],[$],[$],[$])
+Consumer thread [TID=2] pops character =d
+Producer thread [TID=4] pushes character =d
+Stack S = ([a],[b],[c],[d],[$],[$],[$],[$],[$],[$])
+Consumer thread [TID=2] pops character =d
+Stack S = ([a],[b],[c],[d],[$],[$],[$],[$],[$],[$])
+Consumer thread [TID=2] pops character =d
+Consumer thread [TID=2] terminates.
+Producer thread [TID=4] pushes character =d
+Stack S = ([a],[b],[c],[$],[$],[$],[$],[$],[$],[$])
+Producer thread [TID=4] pushes character =d
+Producer thread [TID=4] terminates.
+System terminates normally.
+Final value of top = 3.
+Final value of stack top = d.
+Final value of stack top-1 = c.
+
+[Console output redirected to file:C:\Program Files\eclipse\Output_i.txt]
+Main thread starts executing.
+Initial value of top = 3.
+Initial value of stack top = d.
+Main thread will now fork several threads.
+Two Consumer threads have been created.
+Two Producer threads have been created.
+One CharStackProber thread has been created.
+Consumer thread [TID=1] starts executing.
+Consumer thread [TID=1] pops character =d
+Consumer thread [TID=1] pops character =c
+Consumer thread [TID=1] pops character =b
+Consumer thread [TID=1] terminates.
+Producer thread [TID=3] starts executing.
+Producer thread [TID=3] pushes character =b
+Producer thread [TID=3] pushes character =c
+Producer thread [TID=3] pushes character =d
+Producer thread [TID=3] terminates.
+Consumer thread [TID=2] starts executing.
+Producer thread [TID=4] starts executing.
+Producer thread [TID=4] pushes character =d
+Producer thread [TID=4] pushes character =e
+Producer thread [TID=4] pushes character =f
+CharStackProber thread [TID=5] starts executing.
+Stack S = ([a],[b],[c],[d],[e],[f],[$],[$],[$],[$])
+Stack S = ([a],[b],[c],[d],[e],[f],[$],[$],[$],[$])
+Stack S = ([a],[b],[c],[d],[e],[f],[$],[$],[$],[$])
+Stack S = ([a],[b],[c],[d],[e],[f],[$],[$],[$],[$])
+Stack S = ([a],[b],[c],[d],[e],[f],[$],[$],[$],[$])
+Stack S = ([a],[b],[c],[d],[e],[f],[$],[$],[$],[$])
+Consumer thread [TID=2] pops character =d
+Consumer thread [TID=2] pops character =f
+Consumer thread [TID=2] pops character =e
+Consumer thread [TID=2] terminates.
+Producer thread [TID=4] terminates.
+System terminates normally.
+Final value of top = 3.
+Final value of stack top = d.
+Final value of stack top-1 = c.
+
+[Console output redirected to file:C:\Program Files\eclipse\Output_i.txt]
+Main thread starts executing.
+Initial value of top = 3.
+Initial value of stack top = d.
+Main thread will now fork several threads.
+Two Consumer threads have been created.
+Two Producer threads have been created.
+One CharStackProber thread has been created.
+Producer thread [TID=3] starts executing.
+Consumer thread [TID=2] starts executing.
+Consumer thread [TID=2] pops character =e
+Consumer thread [TID=2] pops character =d
+Consumer thread [TID=2] pops character =c
+Consumer thread [TID=2] terminates.
+Consumer thread [TID=1] starts executing.
+Consumer thread [TID=1] pops character =b
+Consumer thread [TID=1] pops character =a
+CharStackProber thread [TID=5] starts executing.
+Consumer thread [TID=1] pops character =a
+Producer thread [TID=3] pushes character =e
+Stack S = ([$],[$],[$],[$],[$],[$],[$],[$],[$],[$])
+Producer thread [TID=4] starts executing.
+Consumer thread [TID=1] pops character =a
+Producer thread [TID=3] pushes character =a
+Stack S = ([a],[$],[$],[$],[$],[$],[$],[$],[$],[$])
+Producer thread [TID=4] pushes character =b
+Consumer thread [TID=1] pops character =b
+Producer thread [TID=3] pushes character =b
+Stack S = ([a],[b],[$],[$],[$],[$],[$],[$],[$],[$])
+Producer thread [TID=4] pushes character =c
+Consumer thread [TID=1] terminates.
+Producer thread [TID=3] terminates.
+Stack S = ([a],[b],[c],[$],[$],[$],[$],[$],[$],[$])
+Producer thread [TID=4] pushes character =d
+Producer thread [TID=4] terminates.
+Stack S = ([a],[b],[c],[d],[$],[$],[$],[$],[$],[$])
+Stack S = ([a],[b],[c],[d],[$],[$],[$],[$],[$],[$])
+System terminates normally.
+Final value of top = 3.
+Final value of stack top = d.
+Final value of stack top-1 = c.

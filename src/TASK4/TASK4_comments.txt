@@ -1,0 +1,91 @@
+
+Since the two groups of threads (producers and consumers) alternate, it 
+would have been a logical solution to start them sequentially, in the right order in the main method; 
+and if they were to be repeated they still could have been called sequentially, but in a loop.
+(even if it not the purpose of this assignment, it strikes as the logical solution). 
+
+However another solution -- without modifying the main -- was implemented with the following features:
+
+- set up two new semaphores for each group (producers and consumers)
+- initialize the semaphore for the consumers with zero as starting value (so it is blocked at the start)
+- keeping track of the number of threads running in each group.
+- freeing two locks at a time (increment semaphore by two) for the other group only when all the threads 
+in the first group are completed, with the following code:
+
+			} finally {
+				// at the end of 6 loops of the producer, increment the
+				// consumer_semaphore twice only if the 2 producer
+				// threads ran:
+				if (counter_of_running_PRODUCER_threads >= 2) {
+					consumer_semaphore.Signal();
+					consumer_semaphore.Signal();
+				}
+
+				System.out.println("Producer thread [TID=" + this.iTID
+						+ "] terminates.");
+			}
+
+
+I wanted to create a new Cyclic_Semaphore class:
+- that allowed to set the number of threads for  the group in its constructor, and 
+- that allowed to monitor if yes or no the threads in that group had all completed. 
+
+Unfortunately this refactoring did not work because of an unknown bug. But the class Cycle_Semaphore is 
+included in the TASK4 folder, and here is the way I was using it:
+
+			} finally {
+				// at the end of the 6 consumer loops, increment by 2 the 
+				// producer_semaphore only if the two consumer threads ran:
+				if ((consumer_semaphore).DoneCycle()) {
+					(producer_semaphore).Reset();
+				}
+
+				System.out.println("Consumer thread [TID=" + this.iTID
+						+ "] terminates.");
+			}
+
+
+As we can see in the sample output below, even when Consumer threads start before Producers, they
+wait() and don't complete until both Producer threads have completed and triggered the double increment
+for the consumer_semaphore.
+
+=======================================================================================================
+
+Main thread starts executing.
+Initial value of top = 3.
+Initial value of stack top = d.
+Main thread will now fork several threads.
+Two Consumer threads have been created.
+Two Producer threads have been created.
+One CharStackProber thread has been created.
+Consumer thread [TID=1] starts executing.
+Producer thread [TID=3] starts executing.
+Producer thread [TID=3] pushes character =e
+Consumer thread [TID=2] starts executing.
+Producer thread [TID=3] pushes character =f
+Producer thread [TID=3] pushes character =g
+Producer thread [TID=3] terminates.
+Producer thread [TID=4] starts executing.
+Producer thread [TID=4] pushes character =h
+Producer thread [TID=4] pushes character =i
+Producer thread [TID=4] pushes character =j
+Producer thread [TID=4] terminates.
+Consumer thread [TID=2] pops character =j
+CharStackProber thread [TID=5] starts executing.
+Consumer thread [TID=1] pops character =i
+Consumer thread [TID=2] pops character =h
+Stack S = ([a],[b],[c],[d],[e],[f],[g],[$],[$],[$])
+Consumer thread [TID=1] pops character =g
+Consumer thread [TID=2] pops character =f
+Consumer thread [TID=2] terminates.
+Stack S = ([a],[b],[c],[d],[e],[$],[$],[$],[$],[$])
+Consumer thread [TID=1] pops character =e
+Consumer thread [TID=1] terminates.
+Stack S = ([a],[b],[c],[d],[$],[$],[$],[$],[$],[$])
+Stack S = ([a],[b],[c],[d],[$],[$],[$],[$],[$],[$])
+Stack S = ([a],[b],[c],[d],[$],[$],[$],[$],[$],[$])
+Stack S = ([a],[b],[c],[d],[$],[$],[$],[$],[$],[$])
+System terminates normally.
+Final value of top = 3.
+Final value of stack top = d.
+Final value of stack top-1 = c.
